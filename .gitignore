@@ -18,7 +18,7 @@ web/coverage/
 
 # Logs
 *.log
-logs/
+/logs/
 
 # Environment
 .env
