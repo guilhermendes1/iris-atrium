@@ -1,4 +1,0 @@
-Set ^UnitTestRoot = "/opt/mgmt/dev/tests"
-Set tSC = ##class(%UnitTest.Manager).RunTest("UnitTest")
-Write "STATUS=", $System.Status.GetErrorText(tSC), !
-Halt
