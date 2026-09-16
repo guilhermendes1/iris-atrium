@@ -1,0 +1,17 @@
+.git
+.opencode
+.specify
+specs
+node_modules
+**/node_modules
+web/node_modules
+web/dist
+web/.angular
+web/coverage
+*.log
+.DS_Store
+Thumbs.db
+.gitignore
+.dockerignore
+README.md
+LICENSE

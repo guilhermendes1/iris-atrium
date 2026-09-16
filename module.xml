@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" namespace="MANAGEMENT" zv="iris" ts="20260911 00:00:00">
+  <Document name="iris-atrium">
+    <Module>
+      <Name>iris-atrium</Name>
+      <Version>0.0.1</Version>
+      <Description>Browser-based admin console for InterSystems IRIS. Six sections: Web Apps &amp; REST API Explorer, Permissions, Security &amp; Secrets, Tasks, Operating System, and Logs.</Description>
+      <Packaging>module</Packaging>
+      <SourceFolder>src</SourceFolder>
+      <DataFolder>web</DataFolder>
+      <TestingFolder>tests</TestingFolder>
+      <Author>IRIS Atrium</Author>
+      <License>MIT</License>
+      <Keywords>IRIS, management, admin, angular, rest</Keywords>
+    </Module>
+  </Document>
+</Export>

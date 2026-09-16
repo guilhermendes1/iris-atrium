@@ -1,0 +1,25 @@
+// IRIS Atrium install script (run as: iris session IRIS -U %SYS < iris.script)
+// The package is compiled into BOTH %SYS (so the installer API stays usable) and
+// the portal namespace USER, then both web applications are created from %SYS
+// (the Security.* classes are %SYS-only). Line-mode $NAMESPACE switching is the
+// only form that reliably retargets directory loads in this image.
+ZN "%SYS"
+Do ##class(%SYSTEM.OBJ).LoadDir("/opt/mgmt/src/mp/util/", "*.cls", "ck", .tErrors)
+Do ##class(%SYSTEM.OBJ).LoadDir("/opt/mgmt/src/mp/impl/", "*.cls", "ck", .tErrors)
+Do ##class(%SYSTEM.OBJ).LoadDir("/opt/mgmt/src/mp/", "*.cls", "ck", .tErrors)
+Set tNsOld = $Namespace
+Set $Namespace = "USER"
+Do ##class(%SYSTEM.OBJ).LoadDir("/opt/mgmt/src/mp/util/", "*.cls", "ck", .tErrors)
+Do ##class(%SYSTEM.OBJ).LoadDir("/opt/mgmt/src/mp/impl/", "*.cls", "ck", .tErrors)
+Do ##class(%SYSTEM.OBJ).LoadDir("/opt/mgmt/src/mp/", "*.cls", "ck", .tErrors)
+Set $Namespace = tNsOld
+Set tHas = ##class(Security.Users).Exists("SuperUser", .tU)
+If 'tHas Set tSC = ##class(Security.Users).Create("SuperUser", "%All", "SYS")
+If $IsObject(tU) { Set tU.PasswordExternal = "SYS", tSC = tU.%Save() }
+If '$IsObject(tU) Set tSC = $$$ERROR($$$GeneralError, "SuperUser could not be opened")
+Write "SU_PW=", tSC, "|", $System.Status.GetErrorText(tSC), !
+Set tSC = ##class(mp.Installer).CreateApplications("USER")
+Set tDX = $System.Status.IsError(tSC)
+If tDX Write "MP_INSTALL_F", "AILED:", $System.Status.GetErrorText(tSC), !
+If 'tDX Write "MP_INSTALL_", "OK", !
+Halt

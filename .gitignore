@@ -1,0 +1,35 @@
+# Operating system
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# Editors / IDE
+.vscode/
+.idea/
+*.iml
+
+# Node / Angular
+node_modules/
+web/node_modules/
+web/dist/
+web/.angular/
+web/coverage/
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.*
+
+# IRIS local data written by a local (non-Docker) run
+/mgr/
+/durable/
+.durable/
+
+.opencode/
+.specify/
+specs/
+tmp/
