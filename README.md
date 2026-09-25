@@ -22,7 +22,7 @@ The console is organized into six sections:
 
 ## Stack
 
-- **Backend**: InterSystems IRIS Community Edition (`mp` ObjectScript package,
+- **Backend**: InterSystems IRIS Community Edition (`mp` [ISOS](https://ideas.intersystems.com/ideas/DPI-I-802) package,
   `%CSP.REST` dispatch class `mp.disp`).
 - **Frontend**: Angular 17 single-page app built with Node (`web/`).
 - **Tooling**: Docker + Compose, ZPM module `iris-atrium`, GitHub Actions CI,
